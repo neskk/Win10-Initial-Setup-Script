@@ -250,6 +250,8 @@ If (!(Test-Path "HKU:")) {
 }
 ```
 
+`HKEY_CLASSES_ROOT isn't really there when you look at `get-psdrive` results. `HKEY_CLASSES_ROOT` is really `HKEY_LOCAL_MACHINE\SOFTWARE\Classes`, so we can use `HKLM:\SOFTWARE\Classes\Some\Registry\Key`.
+
 ### Force usage
 Star Wars jokes aside, don't use `-Force` option unless absolutely necessary. The only permitted case is when you're creating a new registry key (not a value) and you need to ensure that all parent keys will be created as well. In such case always check first if the key doesn't already exist, otherwise you will delete all its existing values.
 
